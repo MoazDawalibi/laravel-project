@@ -1,0 +1,46 @@
+  //  $user = User::create([
+        //     'name'=> 'ibrahim',
+        //     "email"=>"ibrahim2@gmail.com",
+        //     "password"=> Hash::make("password"),
+        // ]);
+
+        // return $user->createToken("APP")->plainTextToken;
+
+        return Hash::check('password', '$2y$10$L8ch.U4brex3wThOvaVKp.xKJ1Yl/D3rgE5xGyjob.yYqbdNtP.2G');
+
+
+        return Hash::check($value, $hashedValue);
+
+
+        return Hash::check($value, $hashedValue)("password");
+
+
+        return Hash::make("password");
+
+
+
+////////////////////////////////////////////////////////
+
+
+
+
+
+        $count_data = $this->class::withCount('products')->having('products_count' ,'>', $count)->paginate(10);
+
+
+
+
+////////////////////////////////////////////////////////
+
+        // public function test1($id){
+
+
+        //      Category::delete($id);
+        // }
+        // public function test2($request){
+
+
+        //     Category::delete($request->category_id)
+        // }
+
+        
