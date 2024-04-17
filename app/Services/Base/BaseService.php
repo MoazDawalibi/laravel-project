@@ -1,16 +1,22 @@
 <?php
 
-namespace App\Services\Base ;
+namespace App\Services\Base;
 
 class BaseService {
 
-    public function __construct(protected  $class){
+    public function __construct(protected  $class)
+    {
 
     }
-
+    
     public function getAll()
     {
         $BaseData = $this->class::get();
+        return $BaseData;
+    }
+    public function getAllWithPagination($per_page)
+    {
+        $BaseData = $this->class::get()->pagination($per_page);
         return $BaseData;
     }
     public function getOne($id)
@@ -40,10 +46,5 @@ class BaseService {
     {
         return $this->class::with($withFuntionName)->get();
     }
-    // public function getAllWithCount($count)
-    // {
-    //     $count_data = $this->class::take($count)->get();
-    //     return $count_data;
-    // }
 }
 

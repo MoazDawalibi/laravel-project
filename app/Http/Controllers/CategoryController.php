@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $category = $this->service->create($request->all());
         return $this->sendAddResponse($category);    
     }
-    
+
     
     public function update(UpdateCategoryRequest $request)
     {

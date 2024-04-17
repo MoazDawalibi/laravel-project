@@ -1,6 +1,5 @@
 <?php 
 
-
 namespace App\Services ;
 use App\Models\Category;
 use App\Services\Base\BaseService;
@@ -16,7 +15,7 @@ class CategoryService extends BaseService {
     }
     public function getAllWhereUpdatedAt($updated_at, $product_name)
     {
-        $updated_at = Carbon::parse($updated_at)->format(config('date.format'));
+        $updated_at   = Carbon::parse($updated_at)->format(config('date.format'));
         $updatedAt_data = $this->class::with('products')
         ->where('updated_at','like', $updated_at .'%')
         ->with(['products' => function ($query) use ($product_name) {
@@ -27,9 +26,7 @@ class CategoryService extends BaseService {
     }
     public function getAllWithCount($count)
     {
-        $count_data = $this->class::withCount('products')->having('products_count' ,'>', $count)->get();
-        // 2 way
-        // $count_data = $this->class::has('products' , '0' ,0)->get();
+        $count_data = $this->class::withCount('products')->having('products_count' ,'>=', $count)->get();
         return $count_data;
     }
 }

@@ -1,6 +1,6 @@
   //  $user = User::create([
-        //     'name'=> 'ibrahim',
-        //     "email"=>"ibrahim2@gmail.com",
+        //     'name'=> 'MOaz',
+        //     "email"=>"moaz@gmail.com",
         //     "password"=> Hash::make("password"),
         // ]);
 

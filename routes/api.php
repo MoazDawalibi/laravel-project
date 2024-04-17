@@ -20,15 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::prefix('Category')->group(function () {
-//     Route::get('/', [CategoryController::class,'getAll']);
-//     Route::get('/{id}', [CategoryController::class,'getOne']);
-//     Route::post('/', [CategoryController::class,'create']);
-//     Route::post('/{id}', [CategoryController::class,'update']);
-//     Route::delete('/{id}', [CategoryController::class,'destroy']);
-// });
-
-
 Route::prefix('category')->group(function () {
     Route::get('/', [CategoryController::class,'getAll']);
     Route::get('/getOne', [CategoryController::class,'getOne']);
