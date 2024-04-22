@@ -7,6 +7,7 @@ use App\Http\Requests\Category\DeleteCategoryRequest;
 use App\Http\Requests\Category\GetAllWhereUpdateAtCategoryRequest;
 use App\Http\Requests\Category\GetOneCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Models\Product;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,8 @@ class CategoryController extends Controller
     
     public function create(CreateCategoryRequest $request)
     {
-        $category = $this->service->create($request->all());
-        return $this->sendAddResponse($category);    
+            $category = $this->service->create($request->all());
+            return $this->sendAddResponse($category);    
     }
 
     
@@ -61,9 +62,27 @@ class CategoryController extends Controller
     }
     public function getAllWithCount(Request $request)
     {
+        // return __('pagination.moaz');
         $product_count_to_filter = $request->count1 ?? 1;
         $category = $this->service->getAllWithCount($product_count_to_filter);
         return $this->sendGetResponse($category);
     }
    
+
+
+    
+    // public function getAllWithCount(Request $request)
+    // {
+    //     $product_count_to_filter = $request->count1 ?? 1;
+    //     $category = $this->service->getAllWithCount($product_count_to_filter);
+    //     $response = new CategroyResource($category);
+    //     return $this->sendGetResponse($response);
+    // },
+    // public function getAllWithCount(Request $request)
+    // {
+    //     $product_count_to_filter = $request->count1 ?? 1;
+    //     $category = $this->service->getAllWithCount($product_count_to_filter);
+    //     $response = CategroyResource::collection($category);
+    //     return $this->sendGetResponse($response);
+    // }
 }

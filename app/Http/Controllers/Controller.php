@@ -39,6 +39,10 @@ class Controller extends BaseController
         return $this->sendResponse(__('deleted data successfully') , $data , $status);
     }
 
+    public function sendLoginResponse( $data = [] , $status =200 )
+    {
+        return $this->sendResponse(__('logged in successfully') , $data , $status);
+    }
     public function sendError($message, $code = 400, $data = [])
     {
         $response = [
